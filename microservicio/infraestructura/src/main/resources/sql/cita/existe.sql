@@ -1,0 +1,1 @@
+SELECT COUNT(1) FROM cita WHERE idPaciente = :idPaciente AND fechaCita = :fechaCita

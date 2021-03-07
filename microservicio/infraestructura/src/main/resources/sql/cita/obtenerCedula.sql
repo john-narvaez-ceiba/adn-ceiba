@@ -1,0 +1,1 @@
+SELECT noCedula FROM paciente WHERE id = :idPaciente
