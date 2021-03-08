@@ -35,7 +35,7 @@ pipeline {
                   ]]
               ])
 
-
+       sh 'gradle --b ./microservicio/build.gradle clean compileJava'
       }
     }
     
