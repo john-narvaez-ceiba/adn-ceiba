@@ -46,12 +46,13 @@ pipeline {
       }
     }
 
-    stage('Static Code Analysis') {
-      steps('test') {
+    stage('test') {
         steps {
           sh 'cd microservicio && chmod +x gradlew && ./gradlew test --info'
         }
-      }
+    }
+
+    stage('Static Code Analysis') {
       steps{
         echo '------------>Análisis de código estático<------------'
         withSonarQubeEnv('Sonar') {
