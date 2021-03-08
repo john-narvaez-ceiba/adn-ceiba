@@ -1,4 +1,5 @@
 allprojects {
+
     repositories {
         mavenCentral() 
     }
@@ -42,13 +43,17 @@ allprojects {
 }
 
 buildscript {
+
 	repositories {
 		mavenCentral()
 	}
+	
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
 	}
 }
+
+
 
 apply plugin: 'java'
 apply plugin: 'org.springframework.boot'
