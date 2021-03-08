@@ -34,8 +34,6 @@ pipeline {
                       url:'https://github.com/john-narvaez-ceiba/adn-ceiba'
                   ]]
               ])
-
-       sh 'gradle --b ./microservicio/build.gradle clean compileJava'
       }
     }
     
@@ -69,7 +67,6 @@ pipeline {
     }
     success {
       echo 'This will run only if successful'
-      //junit './microservicio/**/build/test-results/test/*.xml'
     }
     failure {
       echo 'This will run only if failed'
