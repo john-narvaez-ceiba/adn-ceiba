@@ -48,7 +48,7 @@ pipeline {
 
     stage('test') {
         steps {
-          sh 'cd microservicio && chmod +x gradlew && ./gradlew test --info'
+          sh 'cd microservicio && chmod +x gradle && ./gradle test --info'
         }
     }
 
