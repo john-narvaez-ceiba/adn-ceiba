@@ -66,6 +66,7 @@ pipeline {
   post {
     always {
       echo 'This will always run'
+       junit 'microservicio/**/build/test-results/test/*.xml' 
     }
     success {
       echo 'This will run only if successful'
