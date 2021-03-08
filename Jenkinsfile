@@ -46,12 +46,6 @@ pipeline {
       }
     }
 
-    stage('test') {
-        steps {
-          sh 'cd microservicio && chmod +x gradle && ./gradle test --info'
-        }
-    }
-
     stage('Static Code Analysis') {
       steps{
         echo '------------>Análisis de código estático<------------'
