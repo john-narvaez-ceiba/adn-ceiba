@@ -4,11 +4,8 @@ import com.ceiba.cita.modelo.entidad.Cita;
 import com.ceiba.cita.puerto.repositorio.RepositorioCita;
 import com.ceiba.infraestructura.jdbc.CustomNamedParameterJdbcTemplate;
 import com.ceiba.infraestructura.jdbc.sqlstatement.SqlStatement;
-import net.bytebuddy.implementation.bytecode.Throw;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.stereotype.Repository;
-
-import java.io.IOException;
 import java.time.LocalDate;
 
 @Repository
