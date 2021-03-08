@@ -42,6 +42,7 @@ public class ConsultaControladorCitaTest {
         mocMvc.perform(get(TEST_API_URL)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
+                .andExpect(jsonPath("$", hasSize(1)))
                 .andExpect(jsonPath("$.[*].idPaciente").value(DEFAULT_ID_PACIENTE))
                 .andExpect(jsonPath("$.[*].valorOriginal").value(DEFAULT_VALOR_ORIGINAL))
                 .andExpect(jsonPath("$.[*].valorDescuento").value(DEFAULT_VALOR_DESCUENTO))
