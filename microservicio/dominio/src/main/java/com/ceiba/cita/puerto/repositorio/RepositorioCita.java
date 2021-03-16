@@ -1,8 +1,6 @@
 package com.ceiba.cita.puerto.repositorio;
 
 import com.ceiba.cita.modelo.entidad.Cita;
-
-import java.io.IOException;
 import java.time.LocalDate;
 
 public interface RepositorioCita {
@@ -39,5 +37,5 @@ public interface RepositorioCita {
      * @return número de cédula
      */
 
-    Integer ObtenerCedula(Long idPaciente);
+    Integer obtenerCedula(Long idPaciente);
 }

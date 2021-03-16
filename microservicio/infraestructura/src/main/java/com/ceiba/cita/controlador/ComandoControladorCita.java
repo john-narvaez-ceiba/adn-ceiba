@@ -28,13 +28,13 @@ public class ComandoControladorCita {
 
     @PostMapping
     @ApiOperation("Crear Cita")
-    public ComandoRespuesta<Long> crear(@RequestBody ComandoCita comandoCita) {
+    public ComandoRespuesta<Long> crear(@RequestBody ComandoCita comandoCita) throws IOException {
         return manejadorCrearCita.ejecutar(comandoCita);
     }
 
     @PutMapping(value="/{id}")
     @ApiOperation("Actualizar Cita")
-    public void actualizar(@RequestBody ComandoCita comandoCita, @PathVariable Long id) {
+    public void actualizar(@RequestBody ComandoCita comandoCita, @PathVariable Long id) throws IOException {
         comandoCita.setId(id);
         manejadorActualizarCita.ejecutar(comandoCita);
     }

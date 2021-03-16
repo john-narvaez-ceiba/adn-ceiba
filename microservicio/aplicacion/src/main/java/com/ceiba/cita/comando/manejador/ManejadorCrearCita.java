@@ -8,6 +8,8 @@ import com.ceiba.cita.servicio.ServicioCrearCita;
 import com.ceiba.manejador.ManejadorComandoRespuesta;
 import org.springframework.stereotype.Component;
 
+import java.io.IOException;
+
 @Component
 public class ManejadorCrearCita implements ManejadorComandoRespuesta<ComandoCita, ComandoRespuesta<Long>> {
 
@@ -20,7 +22,7 @@ public class ManejadorCrearCita implements ManejadorComandoRespuesta<ComandoCita
         this.servicioCrearCita = servicioCrearCita;
     }
 
-    public ComandoRespuesta<Long> ejecutar(ComandoCita comandoCita) {
+    public ComandoRespuesta<Long> ejecutar(ComandoCita comandoCita) throws IOException {
         Cita cita = this.fabricaCita.crear(comandoCita);
         return new ComandoRespuesta<>(this.servicioCrearCita.ejecutar(cita));
     }

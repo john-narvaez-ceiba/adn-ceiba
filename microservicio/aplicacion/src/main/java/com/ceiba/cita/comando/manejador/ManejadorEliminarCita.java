@@ -15,7 +15,6 @@ public class ManejadorEliminarCita implements ManejadorComando<Long> {
         this.servicioEliminarPaciente = servicioEliminarPaciente;
     }
 
-
     public void ejecutar(Long idCita) throws IOException {
         this.servicioEliminarPaciente.ejecutar(idCita);
     }

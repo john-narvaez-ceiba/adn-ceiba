@@ -11,4 +11,6 @@ public interface DaoPaciente {
      * @return los pacientes
      */
     List<DtoPaciente> listar();
+
+    List<DtoPaciente> listarId(Long id);
 }

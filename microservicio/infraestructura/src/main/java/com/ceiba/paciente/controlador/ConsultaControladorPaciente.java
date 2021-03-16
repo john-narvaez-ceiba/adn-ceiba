@@ -3,9 +3,8 @@ package com.ceiba.paciente.controlador;
 import java.util.List;
 
 import com.ceiba.paciente.consulta.ManejadorListarPaciente;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.ceiba.paciente.consulta.ManejoListarPacienteId;
+import org.springframework.web.bind.annotation.*;
 
 import com.ceiba.paciente.modelo.dto.DtoPaciente;
 
@@ -18,9 +17,11 @@ import io.swagger.annotations.ApiOperation;
 public class ConsultaControladorPaciente {
 
     private final ManejadorListarPaciente manejadorListarPaciente;
+    private final ManejoListarPacienteId manejoListarPacienteId;
 
-    public ConsultaControladorPaciente(ManejadorListarPaciente manejadorListarPaciente) {
+    public ConsultaControladorPaciente(ManejadorListarPaciente manejadorListarPaciente, ManejoListarPacienteId manejoListarPacienteId) {
         this.manejadorListarPaciente = manejadorListarPaciente;
+        this.manejoListarPacienteId = manejoListarPacienteId;
     }
 
     @GetMapping
@@ -28,5 +29,9 @@ public class ConsultaControladorPaciente {
     public List<DtoPaciente> listar() {
         return this.manejadorListarPaciente.ejecutar();
     }
+
+    @GetMapping(value="/{id}")
+    @ApiOperation("Paciente by Id")
+    public List<DtoPaciente> listarId(@PathVariable Long id) { return this.manejoListarPacienteId.ejecutar(id); }
 
 }

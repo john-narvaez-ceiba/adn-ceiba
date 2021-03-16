@@ -1,3 +1,3 @@
-DELETE
-FROM cita
-WHERE id = :id
+delete
+from cita
+where id = :id

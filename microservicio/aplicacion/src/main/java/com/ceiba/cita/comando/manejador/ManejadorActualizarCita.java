@@ -7,6 +7,8 @@ import com.ceiba.cita.servicio.ServicioActualizarCita;
 import com.ceiba.manejador.ManejadorComando;
 import org.springframework.stereotype.Component;
 
+import java.io.IOException;
+
 @Component
 public class ManejadorActualizarCita implements ManejadorComando<ComandoCita> {
 
@@ -18,7 +20,7 @@ public class ManejadorActualizarCita implements ManejadorComando<ComandoCita> {
         this.servicioActualizarCita = servicioActualizarCita;
     }
 
-    public void ejecutar(ComandoCita comandoCita) {
+    public void ejecutar(ComandoCita comandoCita) throws IOException {
         Cita cita = this.fabricaCita.crear(comandoCita);
         this.servicioActualizarCita.ejecutar(cita);
     }

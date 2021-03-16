@@ -60,7 +60,7 @@ public class RepositorioCitaMysql implements RepositorioCita {
     }
 
     @Override
-    public Integer ObtenerCedula(Long idPaciente) {
+    public Integer obtenerCedula(Long idPaciente) {
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
         paramSource.addValue("idPaciente", idPaciente);
 

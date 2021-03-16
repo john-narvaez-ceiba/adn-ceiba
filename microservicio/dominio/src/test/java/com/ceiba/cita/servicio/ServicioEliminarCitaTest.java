@@ -9,10 +9,12 @@ import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import org.mockito.Mockito;
 
+import java.io.IOException;
+
 public class ServicioEliminarCitaTest {
 
     @Test
-    public void eliminarCitaTest() {
+    public void eliminarCitaTest() throws IOException {
         // arrange
         Cita cita = new CitaTestDataBuilder().id(null).build();
         RepositorioCita repositorioCita = Mockito.mock(RepositorioCita.class);

@@ -1,6 +1,8 @@
 package com.ceiba.cita.servicio.testdatabuilder;
 
 import com.ceiba.cita.modelo.entidad.Cita;
+
+import java.io.IOException;
 import java.time.LocalDate;
 
 public class CitaTestDataBuilder {
@@ -57,7 +59,7 @@ public class CitaTestDataBuilder {
         return this;
     }
 
-    public Cita build() {
+    public Cita build() throws IOException {
         return new Cita(id,idPaciente,valorOriginal,valorDescuento,descuento,efectivo,fechaCita);
     }
 

@@ -5,11 +5,13 @@ import com.ceiba.cita.puerto.repositorio.RepositorioCita;
 import com.ceiba.dominio.excepcion.ExcepcionCita;
 import com.ceiba.dominio.excepcion.ExcepcionDuplicidad;
 
-import java.io.IOException;
 import java.time.LocalDate;
 
 public class ServicioActualizarCita {
 
+    public static final int MOD_10 = 10;
+    public static final int RANGO_VALOR_CITA_MENOR = 8000;
+    public static final int RANGO_VALOR_CITA_MAYOR = 13000;
     private final RepositorioCita repositorioCita;
 
     private static final String EL_PACIENTE_YA_TIENE_CITA = "El paciente ya tiene una cita asignada para esa fecha";
@@ -26,15 +28,6 @@ public class ServicioActualizarCita {
         validarPicoCedula(cita.getIdPaciente(), cita.getFechaCita());
         validarValorCita(cita.getValorOriginal());
 
-        if(cita.getEfectivo()) {
-
-            Integer sacarPorcentaje = (cita.getValorOriginal()*3)/100;
-            Integer valorDescuento = cita.getValorOriginal() - sacarPorcentaje;
-
-            cita.setValorDescuento(valorDescuento);
-            cita.setDescuento(3);
-        }
-
         this.repositorioCita.actualizar(cita);
     }
 
@@ -48,10 +41,10 @@ public class ServicioActualizarCita {
 
     public void validarPicoCedula(Long idPaciente, LocalDate fechaCita) {
 
-        Integer noCedula = this.repositorioCita.ObtenerCedula(idPaciente);
-        Integer digitoCedula = noCedula%10;
+        Integer noCedula = this.repositorioCita.obtenerCedula(idPaciente);
+        Integer digitoCedula = noCedula% MOD_10;
 
-        Integer dia = fechaCita.getDayOfMonth() < 10 ? fechaCita.getDayOfMonth() : fechaCita.getDayOfMonth()%10;
+        Integer dia = fechaCita.getDayOfMonth() < MOD_10 ? fechaCita.getDayOfMonth() : fechaCita.getDayOfMonth()% MOD_10;
 
         if(digitoCedula != dia) {
             throw new ExcepcionCita(PACIENTE_PICO_CEDULA);
@@ -59,7 +52,7 @@ public class ServicioActualizarCita {
     }
 
     public void validarValorCita(Integer valorOriginal) {
-        if(valorOriginal < 8000 || valorOriginal > 13000) {
+        if(valorOriginal < RANGO_VALOR_CITA_MENOR || valorOriginal > RANGO_VALOR_CITA_MAYOR) {
             throw new ExcepcionCita(VALOR_CITA);
         }
     }
