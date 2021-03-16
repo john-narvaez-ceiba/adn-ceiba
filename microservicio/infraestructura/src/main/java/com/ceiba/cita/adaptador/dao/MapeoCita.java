@@ -20,7 +20,9 @@ public class MapeoCita implements RowMapper<DtoCita>, MapperResult {
         Integer descuento = resultSet.getInt("descuento");
         Boolean efectivo = resultSet.getBoolean("efectivo");
         LocalDate fechaCita = resultSet.getDate("fechaCita").toLocalDate();
+        String nombre = resultSet.getString("nombre");
+        String apellido = resultSet.getString("apellido");
 
-        return new DtoCita(id, idPaciente, valorOriginal, valorDescuento, descuento, efectivo, fechaCita);
+        return new DtoCita(id, idPaciente, valorOriginal, valorDescuento, descuento, efectivo, fechaCita, nombre, apellido);
     }
 }

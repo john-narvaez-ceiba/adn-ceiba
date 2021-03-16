@@ -15,4 +15,6 @@ public class DtoCita {
     private Integer descuento;
     private Boolean efectivo;
     private LocalDate fechaCita;
+    private String nombre;
+    private String apellido;
 }
